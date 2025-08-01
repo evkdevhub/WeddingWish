@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лиза & Марк — С Днём Свадьбы!</title>
+    <meta name="description" content="Поздравления с днем свадьбы от друзей. Лиза и Марк - 1 августа 2025">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes:wght@400&family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --wedding-pink: hsl(352, 41%, 96%);
+            --champagne: hsl(47, 30%, 95%);
+            --rose: hsl(332, 32%, 80%);
+            --gold: hsl(51, 70%, 52%);
+            --purple-gray: hsl(272, 22%, 36%);
+            --warm-brown: hsl(33, 30%, 42%);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, var(--wedding-pink) 0%, var(--champagne) 50%, hsl(0, 0%, 100%) 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .floating-hearts {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .heart {
+            position: absolute;
+            color: var(--rose);
+            font-size: 20px;
+            animation: heartFloat 8s linear infinite;
+        }
+
+        .heart:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .heart:nth-child(2) { left: 20%; animation-delay: 2s; font-size: 16px; }
+        .heart:nth-child(3) { left: 30%; animation-delay: 4s; font-size: 24px; }
+        .heart:nth-child(4) { left: 40%; animation-delay: 1s; font-size: 18px; }
+        .heart:nth-child(5) { left: 50%; animation-delay: 3s; font-size: 22px; }
+        .heart:nth-child(6) { left: 60%; animation-delay: 5s; font-size: 16px; }
+        .heart:nth-child(7) { left: 70%; animation-delay: 1.5s; font-size: 20px; }
+        .heart:nth-child(8) { left: 80%; animation-delay: 3.5s; font-size: 18px; }
+        .heart:nth-child(9) { left: 90%; animation-delay: 0.5s; font-size: 24px; }
+
+        @keyframes heartFloat {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+
+        .main-content {
+            position: relative;
+            z-index: 2;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            padding-bottom: 150px;
+        }
+
+        .hero-section {
+            text-align: center;
+            max-width: 800px;
+        }
+
+        .main-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(3rem, 8vw, 6rem);
+            background: linear-gradient(135deg, var(--purple-gray), var(--warm-brown), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: zoomIn 1.5s ease-out;
+            margin-bottom: 20px;
+        }
+
+        .wedding-wish {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            color: var(--purple-gray);
+            animation: fadeIn 2s ease-out;
+            margin-bottom: 20px;
+        }
+
+        .wedding-date {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            color: var(--warm-brown);
+            animation: fadeIn 2s ease-out 1s both;
+            margin-bottom: 30px;
+        }
+
+        .decorative-line {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            animation: fadeIn 2s ease-out 1s both;
+        }
+
+        .line {
+            width: 60px;
+            height: 1px;
+            background: var(--rose);
+        }
+
+        .decorative-heart {
+            font-size: 1.5rem;
+            color: var(--rose);
+        }
+
+        .buttons-section {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(232, 121, 149, 0.2);
+            padding: 20px;
+            z-index: 10;
+            animation: slideUp 0.5s ease-out;
+        }
+
+        .buttons-title {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            color: var(--purple-gray);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .buttons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .video-button {
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            color: var(--purple-gray);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .video-button:nth-child(1) { background: linear-gradient(to right, var(--rose), var(--wedding-pink), var(--rose)); }
+        .video-button:nth-child(2) { background: linear-gradient(to right, var(--wedding-pink), var(--champagne), var(--wedding-pink)); }
+        .video-button:nth-child(3) { background: linear-gradient(to right, var(--champagne), white, var(--champagne)); }
+        .video-button:nth-child(4) { background: linear-gradient(to right, white, var(--rose), white); }
+
+        .music-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(5px);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            z-index: 20;
+        }
+
+        .music-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Modal Styles */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            animation: fadeInModal 0.3s ease-out;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 90%;
+            max-height: 90%;
+            width: 600px;
+            position: relative;
+            animation: slideInModal 0.3s ease-out;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--purple-gray);
+        }
+
+        .close-button {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--purple-gray);
+            padding: 5px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .close-button:hover {
+            background: rgba(232, 121, 149, 0.1);
+            color: var(--rose);
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            margin-bottom: 20px;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+            border: none;
+        }
+
+        .message-content {
+            text-align: center;
+        }
+
+        .message-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--purple-gray);
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .message-signature {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            color: var(--warm-brown);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes zoomIn {
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes slideUp {
+            0% { opacity: 0; transform: translateY(100%); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInModal {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes slideInModal {
+            0% { transform: scale(0.9) translateY(-20px); opacity: 0; }
+            100% { transform: scale(1) translateY(0); opacity: 1; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .buttons-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .modal-content {
+                margin: 20px;
+                padding: 20px;
+            }
+            
+            .main-content {
+                padding-bottom: 120px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .buttons-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Hearts Animation -->
+    <div class="floating-hearts">
+        <div class="heart">♥</div>
+        <div class="heart">♥</div>
+        <div class="heart">♥</div>
+        <div class="heart">♥</div>
+        <div class="heart">♥</div>
+        <div class="heart">♥</div>
+        <div class="heart">♥</div>
+        <div class="heart">♥</div>
+        <div class="heart">♥</div>
+    </div>
+
+    <!-- Music Toggle Button -->
+    <button class="music-toggle" id="musicToggle">🎵</button>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="hero-section">
+            <!-- Main Title -->
+            <h1 class="main-title">Лиза & Марк</h1>
+            
+            <!-- Wedding Wish -->
+            <h2 class="wedding-wish">С Днём Свадьбы!</h2>
+            
+            <!-- Wedding Date -->
+            <p class="wedding-date">1 августа 2025</p>
+            
+            <!-- Decorative Elements -->
+            <div class="decorative-line">
+                <div class="line"></div>
+                <span class="decorative-heart">♥</span>
+                <div class="line"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Buttons Section -->
+    <div class="buttons-section">
+        <h3 class="buttons-title">Поздравления от друзей</h3>
+        <div class="buttons-grid">
+            <button class="video-button" onclick="openModal('dima')">От Димы</button>
+            <button class="video-button" onclick="openModal('zhenya')">От Жени</button>
+            <button class="video-button" onclick="openModal('irina')">От Ирины</button>
+            <button class="video-button" onclick="openModal('sasha')">От Саши</button>
+        </div>
+    </div>
+
+    <!-- Video Modals -->
+    <div id="modal" class="modal" onclick="closeModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalTitle">Поздравление</h3>
+                <button class="close-button" onclick="closeModal()">&times;</button>
+            </div>
+            
+            <div class="video-container">
+                <iframe id="videoFrame" src="" title="Поздравление" frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen></iframe>
+            </div>
+            
+            <div class="message-content">
+                <p class="message-text" id="messageText"></p>
+                <p class="message-signature" id="messageSignature"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hidden audio element for background music -->
+    <audio id="backgroundMusic" loop>
+        <!-- Add your wedding music file here -->
+        <!-- <source src="wedding-music.mp3" type="audio/mpeg"> -->
+    </audio>
+
+    <script>
+        // Video messages data
+        const videoMessages = {
+            dima: {
+                displayName: "От Димы",
+                videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1",
+                message: "Дорогие Лиза и Марк! Желаю вам бесконечной любви, понимания и счастья! Пусть ваш союз будет крепким как алмаз и нежным как утренняя роса!",
+                signature: "С любовью, Дима ♥"
+            },
+            zhenya: {
+                displayName: "От Жени",
+                videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1",
+                message: "Лиза и Марк, пусть ваша любовь будет источником силы и вдохновения! Желаю вам много смеха, приключений и прекрасных моментов вместе!",
+                signature: "С теплотой, Женя ♥"
+            },
+            irina: {
+                displayName: "От Ирины",
+                videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1",
+                message: "Дорогие молодожены! Пусть ваш дом всегда будет полон любви, тепла и уюта! Желаю вам взаимопонимания и поддержки друг друга во всем!",
+                signature: "С наилучшими пожеланиями, Ирина ♥"
+            },
+            sasha: {
+                displayName: "От Саши",
+                videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1",
+                message: "Лиза и Марк, пусть ваша семейная жизнь будет наполнена радостью, здоровьем и благополучием! Желаю вам всегда находить повод для улыбки и быть друг для друга лучшими друзьями!",
+                signature: "От всего сердца, Саша ♥"
+            }
+        };
+
+        // Music functionality
+        let isPlaying = false;
+        const musicToggle = document.getElementById('musicToggle');
+        const backgroundMusic = document.getElementById('backgroundMusic');
+
+        musicToggle.addEventListener('click', function() {
+            if (isPlaying) {
+                backgroundMusic.pause();
+                musicToggle.textContent = '🎵';
+                isPlaying = false;
+            } else {
+                // Note: Add actual music file path to audio element
+                // backgroundMusic.play().catch(e => console.log('Audio play failed:', e));
+                musicToggle.textContent = '🔇';
+                isPlaying = true;
+            }
+        });
+
+        // Modal functionality
+        function openModal(personKey) {
+            const modal = document.getElementById('modal');
+            const modalTitle = document.getElementById('modalTitle');
+            const videoFrame = document.getElementById('videoFrame');
+            const messageText = document.getElementById('messageText');
+            const messageSignature = document.getElementById('messageSignature');
+
+            const person = videoMessages[personKey];
+            if (person) {
+                modalTitle.textContent = `Поздравление ${person.displayName.replace('От ', 'от ')}`;
+                videoFrame.src = person.videoUrl;
+                messageText.textContent = `"${person.message}"`;
+                messageSignature.textContent = person.signature;
+
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeModal(event) {
+            if (!event || event.target === document.getElementById('modal')) {
+                const modal = document.getElementById('modal');
+                const videoFrame = document.getElementById('videoFrame');
+                
+                modal.classList.remove('active');
+                videoFrame.src = ''; // Stop video playback
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Prevent body scroll when modal is open
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add any initialization code here
+            console.log('Wedding website loaded successfully!');
+        });
+    </script>
+</body>
+</html>
