@@ -21,7 +21,7 @@ const envelopesData = [
   {
     id: 3,
     sender: "От Ирины и Саши",
-    videoUrl: "https://www.youtube.com/embed/5qap5aO4i9A?autoplay=1&mute=1",
+    videoUrl: "https://www.youtube.com/embed/v2Ag52Xpc0c",
     title: "С любовью",
     message: "Желаем гармонии, тепла и вечной влюблённости друг в друга!",
   },
