@@ -1,0 +1,428 @@
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лиза & Марк — С Днём Свадьбы!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes:wght@400&family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'script': ['Great Vibes', 'cursive'],
+                        'serif': ['Playfair Display', 'serif'],
+                        'sans': ['Inter', 'sans-serif']
+                    },
+                    colors: {
+                        'wedding-pink': '#F8E6E9',
+                        'champagne': '#F5F2E8',
+                        'rose': '#E8B4CB',
+                        'gold': '#D4AF37',
+                        'purple-gray': '#5D4E75',
+                        'warm-brown': '#8B6F47'
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'float-delayed': 'float 6s ease-in-out infinite 2s',
+                        'fade-in': 'fadeIn 2s ease-out',
+                        'fade-in-delayed': 'fadeIn 2s ease-out 1s both',
+                        'zoom-in': 'zoomIn 1.5s ease-out',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                        'heart-float': 'heartFloat 8s linear infinite'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        zoomIn: {
+                            '0%': { opacity: '0', transform: 'scale(0.8)' },
+                            '100%': { opacity: '1', transform: 'scale(1)' }
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(100%)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        heartFloat: {
+                            '0%': { transform: 'translateY(100vh) rotate(0deg)', opacity: '0' },
+                            '10%': { opacity: '1' },
+                            '90%': { opacity: '1' },
+                            '100%': { transform: 'translateY(-100px) rotate(360deg)', opacity: '0' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .floating-hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        
+        .heart {
+            position: absolute;
+            color: #E8B4CB;
+            font-size: 20px;
+            animation: heartFloat 8s linear infinite;
+        }
+        
+        .heart:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .heart:nth-child(2) { left: 20%; animation-delay: 2s; font-size: 16px; }
+        .heart:nth-child(3) { left: 30%; animation-delay: 4s; font-size: 24px; }
+        .heart:nth-child(4) { left: 40%; animation-delay: 1s; font-size: 18px; }
+        .heart:nth-child(5) { left: 50%; animation-delay: 3s; font-size: 22px; }
+        .heart:nth-child(6) { left: 60%; animation-delay: 5s; font-size: 16px; }
+        .heart:nth-child(7) { left: 70%; animation-delay: 1.5s; font-size: 20px; }
+        .heart:nth-child(8) { left: 80%; animation-delay: 3.5s; font-size: 18px; }
+        .heart:nth-child(9) { left: 90%; animation-delay: 0.5s; font-size: 24px; }
+        
+        .modal-backdrop {
+            backdrop-filter: blur(8px);
+            background: rgba(248, 230, 233, 0.9);
+        }
+        
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #F8E6E9 0%, #F5F2E8 50%, #FFFFFF 100%);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #5D4E75, #8B6F47, #D4AF37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen relative overflow-x-hidden">
+    <!-- Floating Hearts Background -->
+    <div class="floating-hearts">
+        <div class="heart">♥</div>
+        <div class="heart">♥</div>
+        <div class="heart">♥</div>
+        <div class="heart">♥</div>
+        <div class="heart">♥</div>
+        <div class="heart">♥</div>
+        <div class="heart">♥</div>
+        <div class="heart">♥</div>
+        <div class="heart">♥</div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="min-h-screen flex flex-col justify-center items-center px-4 pb-32">
+        <!-- Hero Section -->
+        <div class="text-center max-w-4xl mx-auto">
+            <!-- Main Title -->
+            <h1 class="font-script text-6xl md:text-8xl lg:text-9xl text-gradient animate-zoom-in mb-6">
+                Лиза & Марк
+            </h1>
+            
+            <!-- Wedding Wish -->
+            <h2 class="font-serif text-2xl md:text-3xl lg:text-4xl text-purple-gray animate-fade-in mb-8">
+                С Днём Свадьбы!
+            </h2>
+            
+            <!-- Wedding Date -->
+            <p class="font-serif text-lg md:text-xl text-warm-brown animate-fade-in-delayed opacity-0 mb-12">
+                1 августа 2025
+            </p>
+            
+            <!-- Decorative Elements -->
+            <div class="animate-fade-in-delayed opacity-0 flex justify-center items-center space-x-4 mb-8">
+                <div class="w-16 h-px bg-gradient-to-r from-transparent to-rose"></div>
+                <span class="text-rose text-2xl">♥</span>
+                <div class="w-16 h-px bg-gradient-to-r from-rose to-transparent"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Button Section -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white/80 backdrop-blur-sm border-t border-rose/20 p-4 animate-slide-up">
+        <div class="max-w-4xl mx-auto">
+            <h3 class="font-serif text-center text-lg text-purple-gray mb-4">Поздравления от друзей</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                <button 
+                    onclick="openModal('dima')"
+                    class="bg-gradient-to-r from-rose to-wedding-pink text-purple-gray font-sans font-medium px-6 py-3 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-rose/30">
+                    От Димы
+                </button>
+                <button 
+                    onclick="openModal('zhenya')"
+                    class="bg-gradient-to-r from-wedding-pink to-champagne text-purple-gray font-sans font-medium px-6 py-3 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-rose/30">
+                    От Жени
+                </button>
+                <button 
+                    onclick="openModal('irina')"
+                    class="bg-gradient-to-r from-champagne to-white text-purple-gray font-sans font-medium px-6 py-3 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-rose/30">
+                    От Ирины
+                </button>
+                <button 
+                    onclick="openModal('sasha')"
+                    class="bg-gradient-to-r from-white to-rose text-purple-gray font-sans font-medium px-6 py-3 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-rose/30">
+                    От Саши
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <!-- Dima's Modal -->
+    <div id="modal-dima" class="fixed inset-0 modal-backdrop hidden items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto transform scale-95 transition-all duration-300" id="modal-content-dima">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="font-serif text-2xl text-purple-gray">Поздравление от Димы</h3>
+                    <button onclick="closeModal('dima')" class="text-purple-gray hover:text-rose transition-colors p-2 rounded-full hover:bg-wedding-pink/20">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- Video Container -->
+                <div class="video-container mb-6">
+                    <!-- Sample wedding greeting video - replace with actual video URLs -->
+                    <iframe 
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1" 
+                        title="Поздравление от Димы"
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                
+                <div class="text-center">
+                    <p class="font-serif text-lg text-purple-gray mb-4">
+                        "Дорогие Лиза и Марк! Желаю вам бесконечной любви, понимания и счастья! Пусть ваш союз будет крепким как алмаз и нежным как утренняя роса!"
+                    </p>
+                    <p class="font-sans text-sm text-warm-brown">С любовью, Дима ♥</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Zhenya's Modal -->
+    <div id="modal-zhenya" class="fixed inset-0 modal-backdrop hidden items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto transform scale-95 transition-all duration-300" id="modal-content-zhenya">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="font-serif text-2xl text-purple-gray">Поздравление от Жени</h3>
+                    <button onclick="closeModal('zhenya')" class="text-purple-gray hover:text-rose transition-colors p-2 rounded-full hover:bg-wedding-pink/20">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="video-container mb-6">
+                    <iframe 
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1" 
+                        title="Поздравление от Жени"
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                
+                <div class="text-center">
+                    <p class="font-serif text-lg text-purple-gray mb-4">
+                        "Лиза и Марк, пусть ваша любовь будет источником силы и вдохновения! Желаю вам много смеха, приключений и прекрасных моментов вместе!"
+                    </p>
+                    <p class="font-sans text-sm text-warm-brown">С теплотой, Женя ♥</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Irina's Modal -->
+    <div id="modal-irina" class="fixed inset-0 modal-backdrop hidden items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto transform scale-95 transition-all duration-300" id="modal-content-irina">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="font-serif text-2xl text-purple-gray">Поздравление от Ирины</h3>
+                    <button onclick="closeModal('irina')" class="text-purple-gray hover:text-rose transition-colors p-2 rounded-full hover:bg-wedding-pink/20">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="video-container mb-6">
+                    <iframe 
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1" 
+                        title="Поздравление от Ирины"
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                
+                <div class="text-center">
+                    <p class="font-serif text-lg text-purple-gray mb-4">
+                        "Дорогие молодожены! Пусть ваш дом всегда будет полон любви, тепла и уюта! Желаю вам взаимопонимания и поддержки друг друга во всем!"
+                    </p>
+                    <p class="font-sans text-sm text-warm-brown">С наилучшими пожеланиями, Ирина ♥</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sasha's Modal -->
+    <div id="modal-sasha" class="fixed inset-0 modal-backdrop hidden items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto transform scale-95 transition-all duration-300" id="modal-content-sasha">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="font-serif text-2xl text-purple-gray">Поздравление от Саши</h3>
+                    <button onclick="closeModal('sasha')" class="text-purple-gray hover:text-rose transition-colors p-2 rounded-full hover:bg-wedding-pink/20">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="video-container mb-6">
+                    <iframe 
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1" 
+                        title="Поздравление от Саши"
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                
+                <div class="text-center">
+                    <p class="font-serif text-lg text-purple-gray mb-4">
+                        "Лиза и Марк, пусть ваша семейная жизнь будет наполнена радостью, здоровьем и благополучием! Желаю вам всегда находить повод для улыбки и быть друг для друга лучшими друзьями!"
+                    </p>
+                    <p class="font-sans text-sm text-warm-brown">От всего сердца, Саша ♥</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background Music (Optional) -->
+    <audio id="background-music" loop>
+        <source src="#" type="audio/mpeg">
+        <!-- TODO: Add wedding background music file -->
+    </audio>
+
+    <script>
+        // Modal functionality
+        function openModal(name) {
+            const modal = document.getElementById(`modal-${name}`);
+            const content = document.getElementById(`modal-content-${name}`);
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            
+            // Smooth animation
+            setTimeout(() => {
+                content.classList.remove('scale-95');
+                content.classList.add('scale-100');
+            }, 10);
+            
+            // Prevent body scroll
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(name) {
+            const modal = document.getElementById(`modal-${name}`);
+            const content = document.getElementById(`modal-content-${name}`);
+            
+            content.classList.remove('scale-100');
+            content.classList.add('scale-95');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+                document.body.style.overflow = 'auto';
+            }, 300);
+        }
+
+        // Close modal when clicking backdrop
+        document.querySelectorAll('[id^="modal-"]').forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    const name = modal.id.replace('modal-', '');
+                    closeModal(name);
+                }
+            });
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const openModal = document.querySelector('[id^="modal-"]:not(.hidden)');
+                if (openModal) {
+                    const name = openModal.id.replace('modal-', '');
+                    closeModal(name);
+                }
+            }
+        });
+
+        // Optional: Background music functionality
+        // TODO: Implement background music with user permission
+        function playBackgroundMusic() {
+            const audio = document.getElementById('background-music');
+            // Note: Auto-play is restricted in modern browsers
+            // This should be triggered by user interaction
+            audio.play().catch(e => {
+                console.log('Auto-play prevented by browser policy');
+            });
+        }
+
+        // Add music control button (optional)
+        function createMusicToggle() {
+            const musicButton = document.createElement('button');
+            musicButton.innerHTML = '🎵';
+            musicButton.className = 'fixed top-4 right-4 bg-white/80 backdrop-blur-sm text-2xl p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-40';
+            musicButton.onclick = () => {
+                const audio = document.getElementById('background-music');
+                if (audio.paused) {
+                    audio.play();
+                    musicButton.innerHTML = '🔇';
+                } else {
+                    audio.pause();
+                    musicButton.innerHTML = '🎵';
+                }
+            };
+            document.body.appendChild(musicButton);
+        }
+
+        // Initialize music toggle (uncomment if music file is added)
+        // createMusicToggle();
+
+        // Smooth scroll behavior for mobile
+        window.addEventListener('load', () => {
+            // Add any initialization code here
+            console.log('Wedding greeting page loaded successfully!');
+        });
+    </script>
+</body>
+</html>
