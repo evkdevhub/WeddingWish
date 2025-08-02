@@ -7,9 +7,9 @@ const envelopesData = [
   {
     id: 1,
     sender: "От Димы",
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1",
+    videoUrl: "https://www.youtube.com/embed/TTMMz3Amqwk",
     title: "От души",
-    message: "Поздравляю!",
+    message: "Любите друг друга, поддерживайте и не забывайте, что семья — это лучший квест в жизни! Обнял, приподнял, женил 🎊",
   },
   {
     id: 2,
