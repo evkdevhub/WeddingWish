@@ -128,10 +128,7 @@ export default function Home() {
         ))}
       </div>
 
-      {/* Text under envelopes */}
-      <p className="text-center text-gray-600 mt-6 mb-8 text-base md:text-lg font-medium z-10">
-        Основной подарок прилетит на сбер 📩
-      </p>
+      
 
       {/* Modal */}
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
